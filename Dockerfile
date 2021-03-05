@@ -9,7 +9,7 @@ RUN curl https://www.princexml.com/download/prince-12.5.1-alpine3.10-x86_64.tar.
 RUN tar -zxvf prince.tar.gz
 RUN rm prince.tar.gz
 
-RUN apt install --no-cache \
+RUN apk add --no-cache \
   libxml2 \
   libxml2-utils \
   pixman \
@@ -24,7 +24,6 @@ RUN apt install --no-cache \
 
 ENV PRINCE_LOC=/prince/prince-12.5.1-alpine3.10-x86_64/lib/prince/bin/prince
 
-# My old app starting point
 RUN \
   mkdir -p /aws && \
   apk -Uuv add groff less python py-pip bash && \
